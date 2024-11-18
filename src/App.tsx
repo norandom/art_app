@@ -6,6 +6,7 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import MainHeader from './components/MainHeader';
 import Header from './components/Header';
 import About from './components/About';
+import Education from './components/Education';
 import Projects from './components/Projects';
 import CV from './components/CV';
 import Footer from './components/Footer';
@@ -35,6 +36,7 @@ const App: React.FC = () => {
             <IntroAnimation />
             <Header />
             <About />
+            <Education />
             <Projects />
             <CV />
           </ContentContainer>

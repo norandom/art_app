@@ -1,0 +1,45 @@
+/* The Monospace Web - A CSS framework for monospace typography */
+
+:root {
+  --monospace-font: "SF Mono", Monaco, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+  --monospace-line-height: 1.5;
+  --monospace-font-size: 16px;
+  --monospace-box-padding: 1rem;
+  --monospace-box-border: 1px solid #ccc;
+  --monospace-box-border-radius: 4px;
+  --monospace-box-background: #f8f8f8;
+}
+
+body {
+  font-family: var(--monospace-font);
+  line-height: var(--monospace-line-height);
+  font-size: var(--monospace-font-size);
+}
+
+.monospace-box {
+  padding: var(--monospace-box-padding);
+  border: var(--monospace-box-border);
+  border-radius: var(--monospace-box-border-radius);
+  background-color: var(--monospace-box-background);
+  font-family: var(--monospace-font);
+  margin: 1rem 0;
+}
+
+pre, code {
+  font-family: var(--monospace-font);
+  background-color: var(--monospace-box-background);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  padding: var(--monospace-box-padding);
+  border: var(--monospace-box-border);
+  border-radius: var(--monospace-box-border-radius);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+}

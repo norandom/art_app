@@ -8,18 +8,24 @@ const AboutSection = styled.section`
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 2rem;
   text-align: center;
 `;
 
 const AboutContent = styled(motion.div)`
-  padding: 3rem;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: var(--monospace-box-padding);
+  background: var(--monospace-box-background);
+  border: var(--monospace-box-border);
+  border-radius: var(--monospace-box-border-radius);
 `;
 
 const AboutText = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-color);
   margin-bottom: 2rem;
@@ -31,86 +37,120 @@ const AboutText = styled.p`
 
 const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
+`;
+
+const SkillCategory = styled.div`
+  margin-bottom: 2rem;
+`;
+
+const CategoryTitle = styled.h3`
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
 `;
 
 const Skill = styled(motion.div)`
   padding: 0.8rem;
   background: var(--accent-color);
   color: white;
-  border-radius: 4px;
-  font-family: 'Space Mono', monospace;
+  border-radius: var(--monospace-box-border-radius);
   font-size: 0.9rem;
+  text-align: center;
 `;
 
 const About: React.FC = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut",
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
-  const skillVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut"
-      }
-    }
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
-  const skills = [
-    "React",
-    "TypeScript",
-    "Node.js",
-    "GraphQL",
-    "CSS/SCSS",
-    "Git",
-    "AWS",
-    "Docker"
-  ];
+  const skills = {
+    'Security Architecture': [
+      'Zero Trust Architecture',
+      'Startup Security',
+      'Agile Security Framework',
+      'Security Design Patterns',
+      'Risk Quantification',
+      'Threat Modeling'
+    ],
+    'Quantitative Analysis': [
+      'Security Analytics',
+      'Risk Modeling',
+      'Statistical Analysis',
+      'Data-Driven Security',
+      'Performance Metrics',
+      'Security ROI Analysis'
+    ],
+    'Technical Expertise': [
+      'Cloud Security',
+      'API Security',
+      'Encryption Systems',
+      'Security Automation',
+      'DevSecOps',
+      'Secure Architecture'
+    ],
+    'Innovation & Leadership': [
+      'International Consulting',
+      'Startup Advisory',
+      'Security Strategy',
+      'Team Leadership',
+      'Innovation Security',
+      'Agile Methodologies'
+    ]
+  };
 
   return (
-    <AboutSection>
+    <AboutSection id="about" ref={ref}>
+      <SectionTitle>About Me</SectionTitle>
       <AboutContent
-        ref={ref}
+        variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        variants={containerVariants}
       >
         <AboutText>
-          I'm a passionate software engineer with a keen eye for design and a love
-          for creating elegant, efficient solutions to complex problems.
+          Enterprise Security Architect and Quantitative Analyst with extensive experience in designing innovative security solutions for agile organizations worldwide. Specialized in combining security architecture with quantitative analysis to drive data-informed security decisions.
         </AboutText>
         <AboutText>
-          With years of experience in full-stack development, I specialize in
-          building modern web applications that combine beautiful interfaces with
-          robust architecture.
+          Proven track record working with innovative startups and small companies across international markets, implementing efficient security frameworks that scale with rapid growth while maintaining agility. Expert in quantifying security risks and translating complex security concepts into actionable business strategies.
         </AboutText>
-        <SkillsGrid>
-          {skills.map((skill, index) => (
-            <Skill key={index} variants={skillVariants}>
-              {skill}
-            </Skill>
-          ))}
-        </SkillsGrid>
+        <AboutText>
+          Passionate about applying quantitative methods to security architecture, developing metrics-driven security programs, and creating adaptive security frameworks for fast-moving organizations. Strong focus on innovation and practical security solutions that enable business growth.
+        </AboutText>
+
+        {Object.entries(skills).map(([category, skillList]) => (
+          <SkillCategory key={category}>
+            <CategoryTitle>{category}</CategoryTitle>
+            <SkillsGrid>
+              {skillList.map((skill) => (
+                <Skill
+                  key={skill}
+                  variants={itemVariants}
+                >
+                  {skill}
+                </Skill>
+              ))}
+            </SkillsGrid>
+          </SkillCategory>
+        ))}
       </AboutContent>
     </AboutSection>
   );

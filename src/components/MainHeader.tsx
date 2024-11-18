@@ -9,25 +9,23 @@ const HeaderWrapper = styled.header`
   right: 0;
   z-index: 100;
   background: var(--header-bg);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(26, 54, 93, 0.1);
+  border-bottom: var(--monospace-box-border);
 `;
 
 const HeaderContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: var(--monospace-box-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 const Logo = styled(motion.div)`
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--monospace-font);
   font-size: 1.4rem;
   font-weight: bold;
   color: var(--accent-color);
-  font-style: italic;
 `;
 
 const Nav = styled.nav`
@@ -36,7 +34,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled(motion.a)`
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--monospace-font);
   color: var(--text-color);
   text-decoration: none;
   font-size: 0.9rem;
@@ -62,7 +60,7 @@ const MainHeader: React.FC = () => {
   const navItems = [
     { title: 'About', href: '#about' },
     { title: 'Projects', href: '#projects' },
-    { title: 'Experience', href: '#experience' },
+    { title: 'CV', href: '#cv' },
   ];
 
   return (
@@ -73,7 +71,7 @@ const MainHeader: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          The Portfolio
+          Marius Ciepluch
         </Logo>
         <Nav>
           {navItems.map((item, index) => (
