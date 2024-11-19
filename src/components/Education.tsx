@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 
 const EducationSection = styled.section`
   margin: 6rem 0;
@@ -62,6 +63,7 @@ const CertificationItem = styled(motion.div)`
 `;
 
 const Education: React.FC = () => {
+  const { t } = useLanguage();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -90,49 +92,47 @@ const Education: React.FC = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <SectionTitle>Education</SectionTitle>
+        <SectionTitle>{t('education.title')}</SectionTitle>
         
         <EducationItem variants={itemVariants}>
-          <Degree>Master of Science in Information Security</Degree>
-          <School>Top Technical University</School>
-          <Period>2015 - 2017</Period>
+          <Degree>{t('education.masters.degree')}</Degree>
+          <School>{t('education.masters.school')}</School>
+          <Period>{t('education.masters.period')}</Period>
           <Description>
-            Specialized in advanced cybersecurity, cryptography, and secure system design. 
-            Thesis focused on "Zero Trust Architecture Implementation in Enterprise Environments."
+            {t('education.masters.description')}
           </Description>
         </EducationItem>
 
         <EducationItem variants={itemVariants}>
-          <Degree>Bachelor of Science in Computer Science</Degree>
-          <School>Premier University</School>
-          <Period>2011 - 2015</Period>
+          <Degree>{t('education.bachelors.degree')}</Degree>
+          <School>{t('education.bachelors.school')}</School>
+          <Period>{t('education.bachelors.period')}</Period>
           <Description>
-            Core focus on computer science fundamentals, networking, and security principles. 
-            Minor in Business Administration.
+            {t('education.bachelors.description')}
           </Description>
         </EducationItem>
 
         <Certifications>
-          <SectionTitle>Professional Certifications</SectionTitle>
+          <SectionTitle>{t('education.certifications.title')}</SectionTitle>
           
           <CertificationItem variants={itemVariants}>
-            <Degree>CISSP - Certified Information Systems Security Professional</Degree>
-            <Period>2018 - Present</Period>
+            <Degree>{t('education.certifications.cissp.degree')}</Degree>
+            <Period>{t('education.certifications.cissp.period')}</Period>
           </CertificationItem>
 
           <CertificationItem variants={itemVariants}>
-            <Degree>TOGAF 9.2 Certified</Degree>
-            <Period>2019 - Present</Period>
+            <Degree>{t('education.certifications.togaf.degree')}</Degree>
+            <Period>{t('education.certifications.togaf.period')}</Period>
           </CertificationItem>
 
           <CertificationItem variants={itemVariants}>
-            <Degree>AWS Certified Security - Specialty</Degree>
-            <Period>2020 - Present</Period>
+            <Degree>{t('education.certifications.aws.degree')}</Degree>
+            <Period>{t('education.certifications.aws.period')}</Period>
           </CertificationItem>
 
           <CertificationItem variants={itemVariants}>
-            <Degree>SABSA Chartered Security Architect</Degree>
-            <Period>2021 - Present</Period>
+            <Degree>{t('education.certifications.sabsa.degree')}</Degree>
+            <Period>{t('education.certifications.sabsa.period')}</Period>
           </CertificationItem>
         </Certifications>
       </motion.div>

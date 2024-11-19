@@ -19,7 +19,38 @@ export const translations = {
       title: 'Education',
       university: 'University',
       degree: 'Degree',
-      year: 'Year'
+      year: 'Year',
+      masters: {
+        degree: 'Master of Science in Information Security',
+        school: 'Top Technical University',
+        period: '2015 - 2017',
+        description: 'Specialized in advanced cybersecurity, cryptography, and secure system design. Thesis focused on "Zero Trust Architecture Implementation in Enterprise Environments."'
+      },
+      bachelors: {
+        degree: 'Bachelor of Science in Computer Science',
+        school: 'Premier University',
+        period: '2011 - 2015',
+        description: 'Core focus on computer science fundamentals, networking, and security principles. Minor in Business Administration.'
+      },
+      certifications: {
+        title: 'Professional Certifications',
+        cissp: {
+          degree: 'CISSP - Certified Information Systems Security Professional',
+          period: '2018 - Present'
+        },
+        togaf: {
+          degree: 'TOGAF 9.2 Certified',
+          period: '2019 - Present'
+        },
+        aws: {
+          degree: 'AWS Certified Security - Specialty',
+          period: '2020 - Present'
+        },
+        sabsa: {
+          degree: 'SABSA Chartered Security Architect',
+          period: '2021 - Present'
+        }
+      }
     },
     projects: {
       title: 'Projects',
@@ -46,6 +77,38 @@ export const translations = {
       experience: 'Experience',
       skills: 'Skills',
       languages: 'Languages'
+    },
+    skills: {
+      securityarchitecture: 'Security Architecture',
+      quantitativeanalysis: 'Quantitative Analysis',
+      technicalexpertise: 'Technical Expertise',
+      innovationleadership: 'Innovation & Leadership',
+      items: {
+        zerotrustarchitecture: 'Zero Trust Architecture',
+        startupsecurity: 'Startup Security',
+        agilesecurityframework: 'Agile Security Framework',
+        securitydesignpatterns: 'Security Design Patterns',
+        riskquantification: 'Risk Quantification',
+        threatmodeling: 'Threat Modeling',
+        securityanalytics: 'Security Analytics',
+        riskmodeling: 'Risk Modeling',
+        statisticalanalysis: 'Statistical Analysis',
+        datadrivensecurity: 'Data-Driven Security',
+        performancemetrics: 'Performance Metrics',
+        securityroianalysis: 'Security ROI Analysis',
+        cloudsecurity: 'Cloud Security',
+        apisecurity: 'API Security',
+        encryptionsystems: 'Encryption Systems',
+        securityautomation: 'Security Automation',
+        devsecops: 'DevSecOps',
+        securearchitecture: 'Secure Architecture',
+        internationalconsulting: 'International Consulting',
+        startupadvisory: 'Startup Advisory',
+        securitystrategy: 'Security Strategy',
+        teamleadership: 'Team Leadership',
+        innovationsecurity: 'Innovation Security',
+        agilemethodologies: 'Agile Methodologies'
+      }
     },
     accessibility: {
       menu: 'Accessibility Menu',
@@ -78,7 +141,38 @@ export const translations = {
       title: 'Ausbildung',
       university: 'Universität',
       degree: 'Abschluss',
-      year: 'Jahr'
+      year: 'Jahr',
+      masters: {
+        degree: 'Master of Science in Informationssicherheit',
+        school: 'Technische Hochschule',
+        period: '2015 - 2017',
+        description: 'Spezialisierung auf fortgeschrittene Cybersicherheit, Kryptographie und sicheres Systemdesign. Thesis zum Thema "Implementierung von Zero-Trust-Architektur in Unternehmensumgebungen."'
+      },
+      bachelors: {
+        degree: 'Bachelor of Science in Informatik',
+        school: 'Premier Universität',
+        period: '2011 - 2015',
+        description: 'Schwerpunkt auf Informatik-Grundlagen, Netzwerke und Sicherheitsprinzipien. Nebenfach Betriebswirtschaftslehre.'
+      },
+      certifications: {
+        title: 'Berufliche Zertifizierungen',
+        cissp: {
+          degree: 'CISSP - Certified Information Systems Security Professional',
+          period: '2018 - Heute'
+        },
+        togaf: {
+          degree: 'TOGAF 9.2 Zertifiziert',
+          period: '2019 - Heute'
+        },
+        aws: {
+          degree: 'AWS Certified Security - Specialty',
+          period: '2020 - Heute'
+        },
+        sabsa: {
+          degree: 'SABSA Chartered Security Architect',
+          period: '2021 - Heute'
+        }
+      }
     },
     projects: {
       title: 'Projekte',
@@ -105,6 +199,38 @@ export const translations = {
       experience: 'Erfahrung',
       skills: 'Fähigkeiten',
       languages: 'Sprachen'
+    },
+    skills: {
+      securityarchitecture: 'Sicherheitsarchitektur',
+      quantitativeanalysis: 'Quantitative Analyse',
+      technicalexpertise: 'Technische Expertise',
+      innovationleadership: 'Innovation & Führung',
+      items: {
+        zerotrustarchitecture: 'Zero-Trust-Architektur',
+        startupsecurity: 'Startup-Sicherheit',
+        agilesecurityframework: 'Agiles Sicherheitsframework',
+        securitydesignpatterns: 'Sicherheits-Design-Muster',
+        riskquantification: 'Risikoquantifizierung',
+        threatmodeling: 'Bedrohungsmodellierung',
+        securityanalytics: 'Sicherheitsanalyse',
+        riskmodeling: 'Risikomodellierung',
+        statisticalanalysis: 'Statistische Analyse',
+        datadrivensecurity: 'Datengesteuerte Sicherheit',
+        performancemetrics: 'Leistungskennzahlen',
+        securityroianalysis: 'Sicherheits-ROI-Analyse',
+        cloudsecurity: 'Cloud-Sicherheit',
+        apisecurity: 'API-Sicherheit',
+        encryptionsystems: 'Verschlüsselungssysteme',
+        securityautomation: 'Sicherheitsautomatisierung',
+        devsecops: 'DevSecOps',
+        securearchitecture: 'Sichere Architektur',
+        internationalconsulting: 'Internationale Beratung',
+        startupadvisory: 'Startup-Beratung',
+        securitystrategy: 'Sicherheitsstrategie',
+        teamleadership: 'Teamführung',
+        innovationsecurity: 'Innovative Sicherheit',
+        agilemethodologies: 'Agile Methoden'
+      }
     },
     accessibility: {
       menu: 'Zugänglichkeitsmenü',
