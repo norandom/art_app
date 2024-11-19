@@ -2,12 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 
 const CVSection = styled.section`
-  margin: 6rem 0;
+  margin: 6rem auto;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin: 4rem auto;
+  }
 `;
 
 const CVTitle = styled.h2`
@@ -15,6 +19,11 @@ const CVTitle = styled.h2`
   margin-bottom: 2rem;
   color: var(--text-color);
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const ExperienceItem = styled(motion.div)`
@@ -22,19 +31,33 @@ const ExperienceItem = styled(motion.div)`
   padding: 2rem;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const JobTitle = styled.h3`
   font-size: 1.5rem;
   color: var(--accent-color);
   margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Company = styled.h4`
   font-size: 1.2rem;
   color: var(--secondary-color);
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Period = styled.p`
@@ -42,12 +65,21 @@ const Period = styled.p`
   color: var(--secondary-color);
   font-style: italic;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Description = styled.p`
   font-size: 1rem;
   color: var(--text-color);
   line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
 `;
 
 interface Experience {
@@ -113,11 +145,23 @@ const ExperienceItemComponent: React.FC<{ exp: Experience; index: number }> = ({
 };
 
 const CV: React.FC = () => {
+  const { t } = useLanguage();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <CVSection>
-      <CVTitle>Experience</CVTitle>
+    <CVSection id="cv" ref={ref}>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {t('cv.title')}
+      </motion.h2>
       {experiences.map((exp, index) => (
-        <ExperienceItemComponent key={index} exp={exp} index={index} />
+        <ExperienceItemComponent key={exp.title} exp={exp} index={index} />
       ))}
     </CVSection>
   );

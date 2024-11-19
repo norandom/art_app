@@ -2,9 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 
 const ProjectsSection = styled.section`
-  margin: 6rem 0;
+  margin: 6rem 0 12rem 0;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    margin: 4rem 0 8rem 0;
+  }
 `;
 
 const ProjectGrid = styled.div`
@@ -12,54 +18,76 @@ const ProjectGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const ProjectCard = styled(motion.article)`
-  padding: 2rem;
+  padding: 2rem 2rem 3rem 2rem;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+  }
 `;
 
 const ProjectTitle = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--accent-color);
+  color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const ProjectDescription = styled.p`
   font-size: 1rem;
-  color: var(--secondary-color);
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
   color: var(--text-color);
-  text-align: center;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 interface Project {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Project One",
-    description: "A brief description of your first project. What technologies did you use? What problems did you solve?"
+    titleKey: "projects.items.project1.title",
+    descriptionKey: "projects.items.project1.description"
   },
   {
-    title: "Project Two",
-    description: "Description of your second project. Highlight the key features and your role in development."
+    titleKey: "projects.items.project2.title",
+    descriptionKey: "projects.items.project2.description"
   },
   {
-    title: "Project Three",
-    description: "Details about your third project. What makes it unique? What did you learn?"
+    titleKey: "projects.items.project3.title",
+    descriptionKey: "projects.items.project3.description"
   }
 ];
 
 const ProjectItem: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+  const { t } = useLanguage();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -85,19 +113,31 @@ const ProjectItem: React.FC<{ project: Project; index: number }> = ({ project, i
       animate={inView ? "visible" : "hidden"}
       variants={cardVariants}
     >
-      <ProjectTitle>{project.title}</ProjectTitle>
-      <ProjectDescription>{project.description}</ProjectDescription>
+      <ProjectTitle>{t(project.titleKey)}</ProjectTitle>
+      <ProjectDescription>{t(project.descriptionKey)}</ProjectDescription>
     </ProjectCard>
   );
 };
 
 const Projects: React.FC = () => {
+  const { t } = useLanguage();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <ProjectsSection>
-      <SectionTitle>Projects</SectionTitle>
+    <ProjectsSection id="projects" ref={ref}>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {t('projects.title')}
+      </motion.h2>
       <ProjectGrid>
         {projects.map((project, index) => (
-          <ProjectItem key={index} project={project} index={index} />
+          <ProjectItem key={project.titleKey} project={project} index={index} />
         ))}
       </ProjectGrid>
     </ProjectsSection>

@@ -1,0 +1,176 @@
+/* High Contrast Mode - Light Theme */
+body.high-contrast {
+  --text-color: #000000;
+  --background-color: #ffffff;
+  --accent-color: #0000cc;
+  --header-bg: #ffffff;
+  --link-color: #0000cc;
+  --border-color: #000000;
+  --button-text: #ffffff;
+  --contrast-border: #000000;
+  background-color: var(--background-color);
+}
+
+/* High Contrast Mode - Dark Theme */
+@media (prefers-color-scheme: dark) {
+  body.high-contrast {
+    --text-color: #ffffff;
+    --background-color: #000000;
+    --accent-color: #00ffff;
+    --header-bg: #000000;
+    --link-color: #00ffff;
+    --border-color: #ffffff;
+    --button-text: #000000;
+    --contrast-border: #ffffff;
+  }
+}
+
+body.high-contrast * {
+  border-color: var(--border-color) !important;
+}
+
+body.high-contrast a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+body.high-contrast button {
+  border: 2px solid var(--border-color);
+  background-color: var(--accent-color);
+  color: var(--button-text);
+  font-weight: bold;
+}
+
+body.high-contrast button:hover,
+body.high-contrast button:focus {
+  outline: 2px solid var(--contrast-border);
+  outline-offset: 2px;
+}
+
+body.high-contrast img {
+  border: 2px solid var(--border-color);
+  filter: contrast(120%);
+}
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6 {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+  border: 2px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.high-contrast ::selection {
+  background-color: var(--accent-color);
+  color: var(--button-text);
+}
+
+/* Ensure sufficient contrast for all text */
+body.high-contrast p,
+body.high-contrast span,
+body.high-contrast div {
+  color: var(--text-color);
+}
+
+/* Reduced Motion */
+body.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+body.reduce-motion .matrix-background {
+  display: none;
+}
+
+/* Focus Styles for High Contrast */
+body.high-contrast *:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--background-color), 0 0 0 4px var(--border-color);
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Skip to Main Content - High Contrast */
+body.high-contrast .skip-to-main {
+  background: var(--accent-color);
+  color: var(--button-text);
+  border: 2px solid var(--border-color);
+  font-weight: bold;
+}
+
+body.high-contrast .skip-to-main:focus {
+  outline: 2px solid var(--border-color);
+  box-shadow: 0 0 0 2px var(--background-color), 0 0 0 4px var(--border-color);
+}
+
+/* Skip to Main Content */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-color);
+  color: var(--background-color);
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* ARIA Live Region Styles */
+[aria-live] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Keyboard Navigation Styles */
+[role="button"],
+button,
+a {
+  cursor: pointer;
+}
+
+[role="button"]:focus,
+button:focus,
+a:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

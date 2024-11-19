@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { GlobalStyles } from './styles/GlobalStyles';
+import { LanguageProvider } from './context/LanguageContext';
+import { AccessibilityProvider } from './context/AccessibilityContext';
+import AccessibilityMenu from './components/AccessibilityMenu';
+import './styles/accessibility.css';
 
 import MainHeader from './components/MainHeader';
 import Header from './components/Header';
@@ -26,24 +30,32 @@ const ContentContainer = styled.div`
 
 const App: React.FC = () => {
   return (
-    <>
-      <GlobalStyles />
-      <MatrixBackground />
-      <div className="content-wrapper">
-        <MainHeader />
-        <MainContainer>
-          <ContentContainer>
-            <IntroAnimation />
-            <Header />
-            <About />
-            <Education />
-            <Projects />
-            <CV />
-          </ContentContainer>
-        </MainContainer>
-        <Footer />
-      </div>
-    </>
+    <LanguageProvider>
+      <AccessibilityProvider>
+        <>
+          <GlobalStyles />
+          <MatrixBackground />
+          <a href="#main" className="skip-to-main">
+            Skip to main content
+          </a>
+          <div className="content-wrapper">
+            <MainHeader />
+            <MainContainer>
+              <ContentContainer id="main" role="main" tabIndex={-1}>
+                <IntroAnimation />
+                <Header />
+                <About />
+                <Education />
+                <Projects />
+                <CV />
+              </ContentContainer>
+            </MainContainer>
+            <Footer />
+          </div>
+          <AccessibilityMenu />
+        </>
+      </AccessibilityProvider>
+    </LanguageProvider>
   );
 };
 
