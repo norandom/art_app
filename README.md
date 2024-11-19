@@ -2,9 +2,11 @@
 
 [![Deploy Portfolio](https://github.com/norandom/art_app/actions/workflows/deploy.yml/badge.svg)](https://github.com/norandom/art_app/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue.svg)](https://www.typescriptlang.org/)
-[![Styled Components](https://img.shields.io/badge/Styled_Components-6.0.7-pink.svg)](https://styled-components.com/)
+[![Styled Components](https://img.shields.io/badge/Styled_Components-6.1.13-pink.svg)](https://styled-components.com/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![Tests](https://img.shields.io/badge/Tests-Jest-C21325?logo=jest&logoColor=white)](https://jestjs.io/)
 
 A crafty, responsive and simple portfolio website built with React, TypeScript, and Styled Components. Features a clean design, accessibility and internationalization support.
 
@@ -60,37 +62,62 @@ A crafty, responsive and simple portfolio website built with React, TypeScript, 
 - Framer Motion
 - React Router
 
-## 📦 Project Structure
+## 📁 Project Structure
 
 ```
 art_app/
-├── public/
-│   ├── assets/
-│   │   └── cv/          # CV documents
-│   ├── index.html
-│   └── ...
-├── src/
-│   ├── components/      # React components
-│   ├── context/         # React context providers
-│   ├── styles/          # Global styles and themes
-│   ├── translations/    # i18n translation files
-│   └── ...
+├── public/          # Static files
+├── src/             # Source code
+│   ├── components/  # React components
+│   ├── context/     # React context providers
+│   ├── styles/      # Global styles and themes
+│   ├── translations/# Internationalization files
+│   ├── utils/       # Utility functions
+│   └── App.tsx      # Main application component
+├── package.json     # Dependencies and scripts
 └── ...
 ```
 
 ## 🔧 Configuration
 
-### Environment Variables
+### Dependencies
 
-Create a `.env` file in the root directory:
+Key dependencies and their versions:
+- React: ^18.3.1
+- TypeScript: ^4.9.5
+- Styled Components: ^6.1.13
+- Framer Motion: ^11.11.17
+- Handsontable: ^14.6.1
+- React Scripts: ^3.0.1
 
-```env
-REACT_APP_GA_ID=your-ga-id
+### Testing
+
+The project uses Jest and React Testing Library for unit and integration tests. Run the tests with:
+
+```bash
+npm test                 # Run tests in watch mode
+npm test -- --coverage  # Run tests with coverage report
 ```
+
+Test files are located in `src/components/__tests__/` and follow the naming pattern `*.test.tsx`.
+
+Key testing features:
+- Unit tests for components
+- Integration tests for component interactions
+- Mocked intersection observer for animation tests
+- Styled-components theme provider integration
 
 ### Deployment
 
-The site is automatically deployed to GitHub Pages using GitHub Actions. Any push to the main branch will trigger a deployment.
+The site is automatically deployed to GitHub Pages using GitHub Actions. Any push to the main branch will trigger a deployment. 
+
+To set up deployment:
+1. Go to your GitHub repository settings
+2. Navigate to "Settings" > "Developer settings" > "Personal access tokens" > "Tokens (classic)"
+3. Generate a new token with `repo` and `workflow` permissions
+4. Go to your repository settings
+5. Navigate to "Settings" > "Secrets and variables" > "Actions"
+6. Add a new secret named `DEPLOY_TOKEN` with your token as the value
 
 ## 📱 Browser Support
 
@@ -114,6 +141,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Author
 
 Your Name
-- Website: [yourwebsite.com](https://yourwebsite.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
+- Website: [Because Security](https://www.because-security.com/)
+- GitHub: [@norandom](https://github.com/norandom)
+- LinkedIn: [Marius Ciepluch](https://www.linkedin.com/in/marius-ciepluch-9ba12313b/)
