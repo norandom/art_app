@@ -185,9 +185,6 @@ const MainHeader: React.FC = () => {
     setLanguage(language === 'en' ? 'de' : 'en');
   };
 
-  const cvPath = isATS ? '/assets/cv-ats' : '/assets/cv';
-  const langSuffix = language === 'de' ? '_de' : '';
-
   return (
     <HeaderWrapper>
       <HeaderContent>
@@ -205,10 +202,10 @@ const MainHeader: React.FC = () => {
           <NavLink href="#projects">{t('nav.projects')}</NavLink>
           <ButtonGroup>
             <NavLink href="#cv">{t('nav.cv')}</NavLink>
-            <ActionButton href={`${cvPath}/cv${langSuffix}.pdf`} download title={t('cv.downloadPDF')}>
+            <ActionButton href="/assets/cv/cv.pdf" download title={t('cv.downloadPDF')}>
               PDF
             </ActionButton>
-            <ActionButton href={`${cvPath}/cv${langSuffix}.docx`} download title={t('cv.downloadDOCX')}>
+            <ActionButton href="/assets/cv/cv.docx" download title={t('cv.downloadDOCX')}>
               Word
             </ActionButton>
           </ButtonGroup>

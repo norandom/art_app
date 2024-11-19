@@ -14,18 +14,6 @@ const CVSection = styled.section`
   }
 `;
 
-const CVTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: var(--text-color);
-  text-align: center;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-`;
-
 const ExperienceItem = styled(motion.div)`
   margin-bottom: 3rem;
   padding: 2rem;

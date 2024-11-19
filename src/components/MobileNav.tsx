@@ -59,14 +59,6 @@ const MobileMenuOverlay = styled(motion.div)`
   }
 `;
 
-const MobileMenuContent = styled(motion.div)`
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-`;
-
 const MobileNavLink = styled(motion.a)`
   font-family: var(--monospace-font);
   color: var(--text-color);

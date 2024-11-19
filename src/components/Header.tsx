@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
 const HeaderContainer = styled.header`
   margin: 4rem 0;
@@ -43,7 +44,7 @@ const Header: React.FC = () => {
         animate="visible"
         variants={containerVariants}
       >
-        Markus Cederlund
+        {translations.en.header.name}
       </Title>
       <Subtitle
         initial="hidden"
