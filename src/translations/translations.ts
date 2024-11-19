@@ -4,6 +4,7 @@ export const translations = {
       about: 'About',
       education: 'Education',
       projects: 'Projects',
+      skills: 'Skills',
       cv: 'CV'
     },
     header: {
@@ -116,6 +117,24 @@ export const translations = {
         agilemethodologies: 'Agile Methodologies'
       }
     },
+    skillMatrix: {
+      title: 'Technical Skills',
+      data: [
+        ['Category', 'Technology'],
+        ['Languages', 'TypeScript/JavaScript'],
+        ['', 'Python'],
+        ['', 'Java'],
+        ['Frontend', 'React'],
+        ['', 'HTML/CSS'],
+        ['', 'Next.js'],
+        ['Backend', 'Node.js'],
+        ['', 'Express'],
+        ['', 'PostgreSQL'],
+        ['Tools', 'Git'],
+        ['', 'Docker'],
+        ['', 'AWS']
+      ]
+    },
     accessibility: {
       menu: 'Accessibility Menu',
       fontSize: 'Font Size',
@@ -132,6 +151,7 @@ export const translations = {
       about: 'Über mich',
       education: 'Ausbildung',
       projects: 'Projekte',
+      skills: 'Fähigkeiten',
       cv: 'Lebenslauf'
     },
     header: {
@@ -243,6 +263,24 @@ export const translations = {
         innovationsecurity: 'Innovative Sicherheit',
         agilemethodologies: 'Agile Methoden'
       }
+    },
+    skillMatrix: {
+      title: 'Technische Fähigkeiten',
+      data: [
+        ['Kategorie', 'Technologie'],
+        ['Sprachen', 'TypeScript/JavaScript'],
+        ['', 'Python'],
+        ['', 'Java'],
+        ['Frontend', 'React'],
+        ['', 'HTML/CSS'],
+        ['', 'Next.js'],
+        ['Backend', 'Node.js'],
+        ['', 'Express'],
+        ['', 'PostgreSQL'],
+        ['Werkzeuge', 'Git'],
+        ['', 'Docker'],
+        ['', 'AWS']
+      ]
     },
     accessibility: {
       menu: 'Zugänglichkeitsmenü',

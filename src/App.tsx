@@ -16,6 +16,7 @@ import CV from './components/CV';
 import Footer from './components/Footer';
 import MatrixBackground from './components/MatrixBackground';
 import IntroAnimation from './components/IntroAnimation';
+import Skills from './components/Skills';
 
 const MainContainer = styled.div`
   padding-top: 60px; /* Space for fixed header */
@@ -46,6 +47,7 @@ const App: React.FC = () => {
                 <Header />
                 <About />
                 <Education />
+                <Skills />
                 <Projects />
                 <CV />
               </ContentContainer>

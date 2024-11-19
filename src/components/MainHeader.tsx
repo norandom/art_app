@@ -201,6 +201,7 @@ const MainHeader: React.FC = () => {
         <Nav>
           <NavLink href="#about">{t('nav.about')}</NavLink>
           <NavLink href="#education">{t('nav.education')}</NavLink>
+          <NavLink href="#skills">{t('nav.skills')}</NavLink>
           <NavLink href="#projects">{t('nav.projects')}</NavLink>
           <ButtonGroup>
             <NavLink href="#cv">{t('nav.cv')}</NavLink>
