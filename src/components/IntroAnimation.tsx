@@ -25,10 +25,10 @@ const World = styled(motion.div)`
   font-size: 20px;
 `;
 
-const Cursor = styled(motion.div)<{ isVisible: boolean }>`
+const Cursor = styled(motion.div)<{ $isVisible: boolean }>`
   width: 20px;
   height: 40px;
-  background: ${props => props.isVisible ? 'var(--accent-color)' : 'transparent'};
+  background: ${props => props.$isVisible ? 'var(--accent-color)' : 'transparent'};
   transition: background-color 0.15s ease;
 `;
 
@@ -154,7 +154,7 @@ const IntroAnimation: React.FC = () => {
       
       {!showGlasses && (
         <Cursor
-          isVisible={isVisible}
+          $isVisible={isVisible}
           initial="initial"
           animate="animate"
           variants={cursorVariants}
