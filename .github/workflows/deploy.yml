@@ -88,10 +88,10 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.DEPLOY_TOKEN }}  # Using custom token name
           branch: gh-pages
           folder: build
           clean: true
-          # Enable compression and caching headers
           clean-exclude: |
             *.gz
           commit-message: "Deploy optimized production build"
