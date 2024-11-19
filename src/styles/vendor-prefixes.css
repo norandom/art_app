@@ -1,0 +1,41 @@
+/* Vendor prefixes in correct order */
+
+/* Box sizing */
+.handsontable div,
+.handsontable input,
+.handsontable table,
+.handsontable tbody,
+.handsontable td,
+.handsontable textarea,
+.handsontable th,
+.handsontable thead {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* Animation fill mode */
+.handsontable.hide-tween {
+    -webkit-animation: opacity-hide .3s;
+    animation: opacity-hide .3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+/* Input and textarea styles */
+.handsontable input,
+.handsontable textarea {
+    min-height: 0; /* Fix for Firefox compatibility */
+}
+
+/* Focus catcher accessibility fix */
+.htFocusCatcher {
+    position: fixed;
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    tabindex: "-1";
+}

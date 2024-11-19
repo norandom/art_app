@@ -22,7 +22,9 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm install --save-dev @babel/plugin-transform-private-property-in-object
 
       - name: Create CV Directories
         run: |
@@ -71,9 +73,17 @@ jobs:
           fi
 
       - name: Build
-        run: npm run build
+        run: |
+          export NODE_ENV=production
+          npm run build
         env:
           CI: false
+          GENERATE_SOURCEMAP: false
+
+      - name: Optimize Assets
+        run: |
+          npm install -g gzipper
+          gzipper compress ./build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -81,3 +91,7 @@ jobs:
           branch: gh-pages
           folder: build
           clean: true
+          # Enable compression and caching headers
+          clean-exclude: |
+            *.gz
+          commit-message: "Deploy optimized production build"

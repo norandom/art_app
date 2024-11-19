@@ -1,46 +1,117 @@
-# Getting Started with Create React App
+# Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Deploy Portfolio](https://github.com/mc/art_app/actions/workflows/deploy.yml/badge.svg)](https://github.com/mc/art_app/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue.svg)](https://www.typescriptlang.org/)
+[![Styled Components](https://img.shields.io/badge/Styled_Components-6.0.7-pink.svg)](https://styled-components.com/)
 
-## Available Scripts
+A modern, responsive portfolio website built with React, TypeScript, and Styled Components. Features a clean design, accessibility and internationalization support.
 
-In the project directory, you can run:
+Download option for Human Ressource professionals in ATS format.
 
-### `npm start`
+Contact option for potential clients.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Portfolio Screenshot](screenshots/screenshot.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+- 🌍 Internationalization (English/German)
+- 📱 Fully responsive design
+- ♿ Accessibility focused
+- 🎨 Modern animations
+- 🚀 Optimized performance
+- 📄 CV download options (PDF/DOCX)
+- 🔍 SEO optimized
+- 🚀 Deployment to GitHub Pages
+- 📦 Applicant Tracking System (ATS) support
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 🚀 Quick Start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/norandom/art_app.git
+   cd art_app
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Start development server**
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🛠️ Technologies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React 18
+- TypeScript
+- Styled Components
+- Framer Motion
+- React Router
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📦 Project Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+art_app/
+├── public/
+│   ├── assets/
+│   │   └── cv/          # CV documents
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/      # React components
+│   ├── context/         # React context providers
+│   ├── styles/          # Global styles and themes
+│   ├── translations/    # i18n translation files
+│   └── ...
+└── ...
+```
 
-## Learn More
+## 🔧 Configuration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create a `.env` file in the root directory:
+
+```env
+REACT_APP_GA_ID=your-ga-id
+```
+
+### Deployment
+
+The site is automatically deployed to GitHub Pages using GitHub Actions. Any push to the main branch will trigger a deployment.
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+Your Name
+- Website: [yourwebsite.com](https://yourwebsite.com)
+- GitHub: [@yourusername](https://github.com/yourusername)
+- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)

@@ -5,6 +5,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import { AccessibilityProvider } from './context/AccessibilityContext';
 import AccessibilityMenu from './components/AccessibilityMenu';
 import './styles/accessibility.css';
+import './styles/vendor-prefixes.css';
 
 import MainHeader from './components/MainHeader';
 import Header from './components/Header';
