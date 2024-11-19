@@ -1,30 +1,32 @@
 # Portfolio Website
 
-[![Deploy Portfolio](https://github.com/mc/art_app/actions/workflows/deploy.yml/badge.svg)](https://github.com/mc/art_app/actions/workflows/deploy.yml)
+[![Deploy Portfolio](https://github.com/norandom/art_app/actions/workflows/deploy.yml/badge.svg)](https://github.com/norandom/art_app/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue.svg)](https://www.typescriptlang.org/)
 [![Styled Components](https://img.shields.io/badge/Styled_Components-6.0.7-pink.svg)](https://styled-components.com/)
 
-A modern, responsive portfolio website built with React, TypeScript, and Styled Components. Features a clean design, accessibility and internationalization support.
+A crafty, responsive and simple portfolio website built with React, TypeScript, and Styled Components. Features a clean design, accessibility and internationalization support.
 
-Download option for Human Ressource professionals in ATS format.
-
-Contact option for potential clients.
+* Download option for Human Ressource professionals in ATS format.
+* Contact option for potential clients.
 
 ![Portfolio Screenshot](screenshots/screenshot.png)
 
 ## ✨ Features
 
 - 🌍 Internationalization (English/German)
-- 📱 Fully responsive design
 - ♿ Accessibility focused 
-- 🎨 Modern animations 
+- 📱 Fully responsive design 
+- 🎨 Modern animations with a conservative art style
 - 🚀 Optimized performance 
-- 📄 CV download options (PDF/DOCX)
-- 🔍 SEO optimized (self-advertising)
+- 📄 CV download options (PDF/DOCX) for your curated and optimized documents
+- 🔍 SEO (free self-advertising)
 - 🚀 Deployment to GitHub Pages (free hosting)
 - 📦 Applicant Tracking System (ATS) support (CVs to help your recruiter / hiring manager)
+- 📝 Skill table in an Excel like look
+- Git branch support
+- and more...
 
 
 ## 🚀 Quick Start
