@@ -24,6 +24,52 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Create CV Directories
+        run: |
+          mkdir -p build/assets/cv
+          mkdir -p build/assets/cv-ats
+
+      - name: Download CV Files
+        env:
+          # English CV URLs
+          CV_PDF_URL: ${{ secrets.CV_PDF_URL }}
+          CV_DOCX_URL: ${{ secrets.CV_DOCX_URL }}
+          CV_ATS_PDF_URL: ${{ secrets.CV_ATS_PDF_URL }}
+          CV_ATS_DOCX_URL: ${{ secrets.CV_ATS_DOCX_URL }}
+          # German CV URLs
+          CV_PDF_DE_URL: ${{ secrets.CV_PDF_DE_URL }}
+          CV_DOCX_DE_URL: ${{ secrets.CV_DOCX_DE_URL }}
+          CV_ATS_PDF_DE_URL: ${{ secrets.CV_ATS_PDF_DE_URL }}
+          CV_ATS_DOCX_DE_URL: ${{ secrets.CV_ATS_DOCX_DE_URL }}
+        run: |
+          # Download English CVs
+          if [ ! -z "$CV_PDF_URL" ]; then
+            curl -L "$CV_PDF_URL" -o build/assets/cv/cv.pdf
+          fi
+          if [ ! -z "$CV_DOCX_URL" ]; then
+            curl -L "$CV_DOCX_URL" -o build/assets/cv/cv.docx
+          fi
+          if [ ! -z "$CV_ATS_PDF_URL" ]; then
+            curl -L "$CV_ATS_PDF_URL" -o build/assets/cv-ats/cv.pdf
+          fi
+          if [ ! -z "$CV_ATS_DOCX_URL" ]; then
+            curl -L "$CV_ATS_DOCX_URL" -o build/assets/cv-ats/cv.docx
+          fi
+          
+          # Download German CVs
+          if [ ! -z "$CV_PDF_DE_URL" ]; then
+            curl -L "$CV_PDF_DE_URL" -o build/assets/cv/cv_de.pdf
+          fi
+          if [ ! -z "$CV_DOCX_DE_URL" ]; then
+            curl -L "$CV_DOCX_DE_URL" -o build/assets/cv/cv_de.docx
+          fi
+          if [ ! -z "$CV_ATS_PDF_DE_URL" ]; then
+            curl -L "$CV_ATS_PDF_DE_URL" -o build/assets/cv-ats/cv_de.pdf
+          fi
+          if [ ! -z "$CV_ATS_DOCX_DE_URL" ]; then
+            curl -L "$CV_ATS_DOCX_DE_URL" -o build/assets/cv-ats/cv_de.docx
+          fi
+
       - name: Build
         run: npm run build
         env:

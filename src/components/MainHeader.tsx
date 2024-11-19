@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
@@ -72,6 +72,90 @@ const NavLink = styled(motion.a)`
   }
 `;
 
+const ActionButton = styled(motion.a)`
+  font-family: var(--monospace-font);
+  background: none;
+  border: 1px solid var(--accent-color);
+  color: var(--text-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--accent-color);
+    color: var(--header-bg);
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.3rem;
+  background: var(--monospace-box-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  align-items: center;
+
+  ${NavLink} {
+    padding: 0.3rem 0.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+`;
+
+const ATSSwitch = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: var(--monospace-font);
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-right: 0.5rem;
+  
+  input {
+    appearance: none;
+    width: 2.2rem;
+    height: 1.2rem;
+    background-color: var(--monospace-box-bg);
+    border: 1px solid var(--accent-color);
+    border-radius: 0.6rem;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:checked {
+      background-color: var(--accent-color);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      top: 50%;
+      left: 0.2rem;
+      transform: translateY(-50%);
+      background-color: var(--text-color);
+      transition: transform 0.2s;
+    }
+
+    &:checked::before {
+      transform: translate(1rem, -50%);
+      background-color: var(--header-bg);
+    }
+  }
+`;
+
 const LanguageSwitch = styled(motion.button)`
   font-family: var(--monospace-font);
   background: none;
@@ -95,10 +179,14 @@ const LanguageSwitch = styled(motion.button)`
 
 const MainHeader: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
+  const [isATS, setIsATS] = useState(false);
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'de' : 'en');
   };
+
+  const cvPath = isATS ? '/assets/cv-ats' : '/assets/cv';
+  const langSuffix = language === 'de' ? '_de' : '';
 
   return (
     <HeaderWrapper>
@@ -114,7 +202,26 @@ const MainHeader: React.FC = () => {
           <NavLink href="#about">{t('nav.about')}</NavLink>
           <NavLink href="#education">{t('nav.education')}</NavLink>
           <NavLink href="#projects">{t('nav.projects')}</NavLink>
-          <NavLink href="#cv">{t('nav.cv')}</NavLink>
+          <ButtonGroup>
+            <NavLink href="#cv">{t('nav.cv')}</NavLink>
+            <ActionButton href={`${cvPath}/cv${langSuffix}.pdf`} download title={t('cv.downloadPDF')}>
+              PDF
+            </ActionButton>
+            <ActionButton href={`${cvPath}/cv${langSuffix}.docx`} download title={t('cv.downloadDOCX')}>
+              Word
+            </ActionButton>
+          </ButtonGroup>
+          <ATSSwitch title="Applicant Tracking System">
+            <input
+              type="checkbox"
+              checked={isATS}
+              onChange={(e) => setIsATS(e.target.checked)}
+            />
+            ATS
+          </ATSSwitch>
+          <ActionButton href="mailto:contact@example.com" title={t('contact.email')}>
+            Email
+          </ActionButton>
           <LanguageSwitch onClick={toggleLanguage}>
             {language === 'en' ? t('header.switchToGerman') : t('header.switchToEnglish')}
           </LanguageSwitch>

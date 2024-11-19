@@ -1,6 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
-Disallow:
+Disallow: /assets/cv/
+Disallow: /assets/cv-ats/
 
 Sitemap: https://mariusciepluch.github.io/sitemap.xml

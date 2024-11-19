@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const HeaderContainer = styled.header`
   margin: 4rem 0;
@@ -21,6 +22,8 @@ const Subtitle = styled(motion.p)`
 `;
 
 const Header: React.FC = () => {
+  const { t } = useLanguage();
+  
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -40,7 +43,7 @@ const Header: React.FC = () => {
         animate="visible"
         variants={containerVariants}
       >
-        Your Name
+        Markus Cederlund
       </Title>
       <Subtitle
         initial="hidden"
@@ -48,7 +51,7 @@ const Header: React.FC = () => {
         variants={containerVariants}
         transition={{ delay: 0.2 }}
       >
-        Software Engineer & Creative Developer
+        {t('about.role')}
       </Subtitle>
     </HeaderContainer>
   );

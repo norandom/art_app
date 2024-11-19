@@ -7,13 +7,14 @@ export const translations = {
       cv: 'CV'
     },
     header: {
-      title: 'Enterprise Security Architect & Quant',
+      name: 'Your Name',
+      title: 'Software Engineer & Creative Developer',
       switchToGerman: 'Deutsch'
     },
     about: {
       title: 'About Me',
-      description: 'Enterprise Security Architect and Quantitative Analyst specializing in innovative security solutions.',
-      role: 'Security Architect & Quant'
+      description: 'Software Engineer and Creative Developer with a passion for building innovative and engaging digital experiences. Specializing in web development, interactive design, and creative coding.',
+      role: 'Software Engineer & Creative Developer'
     },
     education: {
       title: 'Education',
@@ -74,9 +75,14 @@ export const translations = {
     cv: {
       title: 'Curriculum Vitae',
       download: 'Download CV',
+      downloadPDF: 'Download CV as PDF (ATS Friendly)',
+      downloadDOCX: 'Download CV as Word Document',
       experience: 'Experience',
       skills: 'Skills',
       languages: 'Languages'
+    },
+    contact: {
+      email: 'Contact via Email'
     },
     skills: {
       securityarchitecture: 'Security Architecture',
@@ -129,13 +135,14 @@ export const translations = {
       cv: 'Lebenslauf'
     },
     header: {
-      title: 'Enterprise-Sicherheitsarchitekt & Quant',
+      name: 'Your Name',
+      title: 'Software Techniker und Creative Developer',
       switchToEnglish: 'English'
     },
     about: {
       title: 'Über Mich',
-      description: 'Enterprise-Sicherheitsarchitekt und quantitativer Analyst, spezialisiert auf innovative Sicherheitslösungen.',
-      role: 'Sicherheitsarchitekt & Quant'
+      description: 'Software Engineer und Creative Developer mit Leidenschaft für innovative und fesselnde digitale Erlebnisse. Spezialisiert auf Webentwicklung, interaktives Design und kreatives Programmieren.',
+      role: 'Software Techniker und Creative Developer'
     },
     education: {
       title: 'Ausbildung',
@@ -196,9 +203,14 @@ export const translations = {
     cv: {
       title: 'Lebenslauf',
       download: 'Lebenslauf herunterladen',
+      downloadPDF: 'Lebenslauf als PDF herunterladen (ATS-freundlich)',
+      downloadDOCX: 'Lebenslauf als Word-Dokument herunterladen',
       experience: 'Erfahrung',
       skills: 'Fähigkeiten',
       languages: 'Sprachen'
+    },
+    contact: {
+      email: 'Kontakt per E-Mail'
     },
     skills: {
       securityarchitecture: 'Sicherheitsarchitektur',
