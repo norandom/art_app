@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 
 const MatrixBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
   const lastDrawRef = useRef<number>(0);
   const frameIntervalRef = useRef<number>(140);
 

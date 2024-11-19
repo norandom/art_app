@@ -18,13 +18,13 @@ Contact option for potential clients.
 
 - 🌍 Internationalization (English/German)
 - 📱 Fully responsive design
-- ♿ Accessibility focused
-- 🎨 Modern animations
-- 🚀 Optimized performance
+- ♿ Accessibility focused 
+- 🎨 Modern animations 
+- 🚀 Optimized performance 
 - 📄 CV download options (PDF/DOCX)
-- 🔍 SEO optimized
-- 🚀 Deployment to GitHub Pages
-- 📦 Applicant Tracking System (ATS) support
+- 🔍 SEO optimized (self-advertising)
+- 🚀 Deployment to GitHub Pages (free hosting)
+- 📦 Applicant Tracking System (ATS) support (CVs to help your recruiter / hiring manager)
 
 
 ## 🚀 Quick Start
