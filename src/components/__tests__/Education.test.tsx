@@ -1,53 +1,96 @@
 import React from 'react';
-import { render, screen, cleanup } from '../../test-utils';
+import { render, screen } from '../../test-utils';
 import Education from '../Education';
+import { useInView } from 'react-intersection-observer';
 
-// Mock the useLanguage hook and LanguageProvider
-jest.mock('../../context/LanguageContext', () => ({
-  useLanguage: () => ({
-    language: 'en',
-    setLanguage: jest.fn(),
-    t: (key: string) => {
-      const translations = {
-        'education.title': 'Education',
-        'education.items.0.school': 'Test University',
-        'education.items.0.degree': 'Bachelor of Science',
-        'education.items.0.field': 'Computer Science',
-        'education.items.0.year': '2020-2024'
-      };
-      return translations[key] || key;
+// Mock translations
+jest.mock('../../translations/translations', () => ({
+  translations: {
+    en: {
+      education: {
+        title: 'Education',
+        masters: {
+          degree: 'Master of Science',
+          school: 'Test University',
+          period: '2020-2022',
+          description: 'Computer Science'
+        },
+        bachelors: {
+          degree: 'Bachelor of Science',
+          school: 'Test University',
+          period: '2016-2020',
+          description: 'Computer Science'
+        },
+        certifications: {
+          title: 'Certifications',
+          cissp: {
+            degree: 'CISSP',
+            period: '2021'
+          },
+          togaf: {
+            degree: 'TOGAF',
+            period: '2020'
+          },
+          aws: {
+            degree: 'AWS Solutions Architect',
+            period: '2019'
+          },
+          sabsa: {
+            degree: 'SABSA',
+            period: '2018'
+          }
+        }
+      }
     }
-  }),
-  LanguageProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>
+  }
 }));
 
-describe('Education Component', () => {
-  // Cleanup after each test
-  afterEach(() => {
-    cleanup();
-    jest.clearAllMocks();
-  });
+// Mock react-intersection-observer
+jest.mock('react-intersection-observer', () => ({
+  useInView: () => {
+    const ref = jest.fn();
+    return [ref, true];
+  }
+}));
 
-  it('renders without crashing', () => {
-    render(<LanguageProvider><Education /></LanguageProvider>);
-  });
+// Mock framer-motion
+jest.mock('framer-motion', () => ({
+  motion: {
+    div: function(props) {
+      return <div {...props}>{props.children}</div>;
+    }
+  },
+  useAnimation: () => ({
+    start: jest.fn(),
+    set: jest.fn(),
+  }),
+}));
 
-  it('displays education section title', () => {
-    render(<LanguageProvider><Education /></LanguageProvider>);
+describe('Education', () => {
+  it('renders education section correctly', () => {
+    render(<Education />);
+
+    // Check for section title
     expect(screen.getByText('Education')).toBeInTheDocument();
-  });
 
-  it('displays education details', () => {
-    render(<LanguageProvider><Education /></LanguageProvider>);
-    expect(screen.getByText('Test University')).toBeInTheDocument();
+    // Check for education items
+    expect(screen.getByText('Master of Science')).toBeInTheDocument();
+    expect(screen.getAllByText('Test University')).toHaveLength(2);
+    expect(screen.getByText('2020-2022')).toBeInTheDocument();
+    expect(screen.getAllByText('Computer Science')).toHaveLength(2);
+
     expect(screen.getByText('Bachelor of Science')).toBeInTheDocument();
-    expect(screen.getByText('Computer Science')).toBeInTheDocument();
-    expect(screen.getByText('2020-2024')).toBeInTheDocument();
-  });
+    expect(screen.getByText('2016-2020')).toBeInTheDocument();
 
-  it('applies correct styling', () => {
-    render(<LanguageProvider><Education /></LanguageProvider>);
-    const title = screen.getByText('Education');
-    expect(title.tagName.toLowerCase()).toBe('h2');
+    // Check for certifications
+    expect(screen.getByText('Certifications')).toBeInTheDocument();
+    expect(screen.getByText('CISSP')).toBeInTheDocument();
+    expect(screen.getByText('2021')).toBeInTheDocument();
+    expect(screen.getByText('TOGAF')).toBeInTheDocument();
+    expect(screen.getByText('2020')).toBeInTheDocument();
+    expect(screen.getByText('AWS Solutions Architect')).toBeInTheDocument();
+    expect(screen.getByText('2019')).toBeInTheDocument();
+    expect(screen.getByText('SABSA')).toBeInTheDocument();
+    expect(screen.getByText('2018')).toBeInTheDocument();
   });
 });

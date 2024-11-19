@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+
+const Canvas = styled.canvas`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+`;
 
 const MatrixBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const lastDrawRef = useRef<number>(0);
-  const frameIntervalRef = useRef<number>(140);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -13,84 +19,45 @@ const MatrixBackground: React.FC = () => {
     if (!ctx) return;
 
     // Set canvas size
-    const resizeCanvas = () => {
-      const { innerWidth, innerHeight } = window;
-      const dpr = window.devicePixelRatio || 1;
-      
-      canvas.width = innerWidth * dpr;
-      canvas.height = innerHeight * dpr;
-      
-      canvas.style.width = `${innerWidth}px`;
-      canvas.style.height = `${innerHeight}px`;
-      
-      ctx.scale(dpr, dpr);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-      // Set initial background
-      ctx.fillStyle = 'rgb(245, 245, 240)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Matrix characters
-    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    // Matrix effect configuration
     const fontSize = 14;
-    const columns = Math.floor(window.innerWidth / fontSize);
-    const drops: number[] = Array(columns).fill(0).map(() => Math.random() * -100);
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops: number[] = Array(columns).fill(1);
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-    let animationFrameId: number;
+    ctx.font = `${fontSize}px monospace`;
 
-    // Drawing animation with controlled frame rate
-    const draw = (timestamp: number) => {
-      animationFrameId = requestAnimationFrame(draw);
-
-      // Control frame rate
-      if (timestamp - lastDrawRef.current < frameIntervalRef.current) {
-        return;
-      }
-
-      // Semi-transparent fade effect with white background
-      ctx.fillStyle = 'rgba(245, 245, 240, 0.95)';
+    const draw = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Set character style
-      ctx.fillStyle = 'rgba(26, 54, 93, 0.35)';
-      ctx.font = `${fontSize}px "Courier New", monospace`;
-      ctx.textAlign = 'center';
-
-      // Draw characters
-      drops.forEach((drop, i) => {
+      ctx.fillStyle = '#0F0';
+      drops.forEach((y, i) => {
         const char = chars[Math.floor(Math.random() * chars.length)];
-        const x = i * fontSize + fontSize / 2;
-        const y = drop * fontSize;
+        const x = i * fontSize;
+        ctx.fillText(char, x, y * fontSize);
 
-        ctx.fillText(char, x, y);
-
-        // Reset drop when it reaches bottom
-        if (y > canvas.height && Math.random() > 0.98) {
+        if (y * fontSize > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
-        } else {
-          drops[i] += 0.25;
         }
+        drops[i]++;
       });
 
-      lastDrawRef.current = timestamp;
+      requestAnimationFrame(draw);
     };
 
-    // Start animation
-    draw(0);
+    draw();
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
+      // No cleanup needed for canvas
     };
   }, []);
 
-  return <canvas ref={canvasRef} id="matrix-bg" />;
+  return <Canvas ref={canvasRef} id="matrix-bg" data-testid="matrix-bg" />;
 };
 
 export default MatrixBackground;
