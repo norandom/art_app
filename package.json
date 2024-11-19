@@ -2,7 +2,7 @@
   "name": "art_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mariusciepluch.github.io",
+  "homepage": "https://norandom.github.io/art_app",
   "dependencies": {
     "@handsontable/react": "^14.6.1",
     "@testing-library/jest-dom": "^5.17.0",
